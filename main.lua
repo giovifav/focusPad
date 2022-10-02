@@ -1,4 +1,4 @@
-local textArea = require('classes.textArea')()
+local editor = require('views.editor')()
 
 
 function love.load()
@@ -6,29 +6,29 @@ function love.load()
 end
 
 function love.keypressed(key, scancode, isRepeat)
-	textArea:keypressed(key, isRepeat)
+	editor:keypressed(key, scancode, isRepeat)
 end
 function love.textinput(text)
-	textArea:textinput(text)
+	editor:textinput(text)
 end
 
-function love.mousepressed(mx, my, mbutton, pressCount)
-	textArea:mousepressed(mx, my, mbutton, pressCount)
+function love.mousepressed(x, y, button, istouch, presses)
+	editor:mousepressed(x, y, button, istouch, presses)
 end
-function love.mousemoved(mx, my)
-	textArea:mousemoved(mx, my)
+function love.mousemoved( x, y, dx, dy, istouch )
+	editor:mousemoved( x, y, dx, dy, istouch )
 end
-function love.mousereleased(mx, my, mbutton)
-	textArea:mousereleased(mx, my, mbutton)
+function love.mousereleased(x, y, button, istouch, presses)
+	editor:mousereleased(x, y, button, istouch, presses)
 end
 function love.wheelmoved(dx, dy)
-	textArea:wheelmoved(dx, dy)
+	editor:wheelmoved(dx, dy)
 end
 
 function love.update(dt)
-    textArea:update(dt)
+    editor:update(dt)
 end
 
 function love.draw()
-    textArea:draw()
+    editor:draw()
 end
